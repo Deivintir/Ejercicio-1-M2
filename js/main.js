@@ -44,3 +44,41 @@ const dataUser = users.map(({ name, surname, dateofBirth }) => {
 });
 
 console.log(dataUser);
+/**Declara una clase para instanciar objetos para una entidad "Artículo" que contenga propiedades de su código SKU, descripción, stock y precio.*/
+/**Añade en la misma clase dos métodos "get" y "set" para la propiedad stock que permitan retornar y establecer, respectivamente, el valor de esa propiedad.*/
+/**Instancia un objeto de la clase anterior con valores para todas las propiedades. En el caso de la propiedad "stock", el valor inicial es 0.*/
+/**Declara una función que reciba como parámetros un objeto de la clase anterior y un nuevo valor de "stock". Así, esta función usará el objeto 
+ * y el método "set" de la propiedad "stock" con los parámetros recibidos y devolverá una promesa con un mensaje advirtiendo de que el objeto
+ * fue actualizado. Emplea el método "setTimeout" con 2000 ms para simular un proceso de asincronía.*/
+/**Invoca la función que devuelve una promesa con los métodos de resolución de promesas para imprimir por consola el mensaje.*/
+class Articulo {
+    constructor (descripcion ,sku ,stock ,precio){
+        this.descripcion = descripcion;
+        this.sku = sku;
+        this._stock = stock;
+        this.precio = precio;
+    }
+    get Stock(){
+        return this._stock;
+    }
+    set Stock(value){
+        this._stock = value;
+    }
+}
+const miArticulo = new Articulo('Pantalon', '0000001', 0, 25);
+
+function actual(objetoArticulo, nuevoStock){
+    return new Promise((resolve, reject)=>{
+        setTimeout(() =>{
+            objetoArticulo.sotck = nuevoStock;
+            resolve(`El objeto ha sido actualizado. Nuevo stcok: ${nuevoStock}`);
+        },2000);
+    });
+}
+actual(miArticulo, 20)
+    .then((mensaje)=> {
+        console.log(mensaje);
+    })
+    .catch((error)=>{
+        console.error(error);
+    });
