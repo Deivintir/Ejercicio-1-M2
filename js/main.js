@@ -15,8 +15,9 @@ function ageAllow(age) {
     } else {
        return notAllow = `Hola ${user} ${surname} Este contenido es para mayores de 18 años.`
     }
-    console.log(ageAllow(39));
 }
+console.log(ageAllow(39));
+
 
 /**En el archivo main.js declara una función de expresión usando la sintaxis de flecha que, a partir de un parámetro de fecha de nacimiento, 
  * devuelva la edad usando los métodos "getDate()" y "getTime()" de fechas y "Math.floor()" para redondear. */
